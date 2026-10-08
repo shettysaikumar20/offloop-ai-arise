@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Quest",
+  "type": "object",
+  "required": [
+    "id",
+    "destination_id",
+    "destination_name",
+    "destination_latitude",
+    "destination_longitude",
+    "title",
+    "narrative_intro",
+    "mode",
+    "difficulty",
+    "estimated_duration_minutes",
+    "starting_instruction",
+    "clues",
+    "observation_task",
+    "safety_guidance",
+    "xp_reward"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "destination_id": { "type": "string" },
+    "destination_name": { "type": "string" },
+    "destination_latitude": { "type": "number" },
+    "destination_longitude": { "type": "number" },
+    "title": { "type": "string" },
+    "tagline": { "type": "string" },
+    "narrative_intro": { "type": "string" },
+    "mode": {
+      "type": "string",
+      "enum": ["explorer", "mystery", "social_explorer"]
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["easy", "moderate", "challenging"]
+    },
+    "estimated_duration_minutes": { "type": "integer" },
+    "starting_instruction": { "type": "string" },
+    "clues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["step", "clue_text", "hint_type"],
+        "properties": {
+          "step": { "type": "integer" },
+          "clue_text": { "type": "string" },
+          "hint_type": { "type": "string", "enum": ["landmark", "direction", "sensory", "riddle"] },
+          "unlock_delay_seconds": { "type": "integer" }
+        }
+      }
+    },
+    "observation_task": {
+      "type": "object",
+      "required": ["prompt", "category"],
+      "properties": {
+        "prompt": { "type": "string" },
+        "category": { "type": "string", "enum": ["architecture", "nature", "history", "art", "signage"] },
+        "optional_photo_prompt": { "type": ["string", "null"] }
+      }
+    },
+    "optional_social_challenge": {
+      "type": ["object", "null"],
+      "properties": {
+        "prompt": { "type": "string" },
+        "is_voluntary": { "type": "boolean" },
+        "alternative_solo_task": { "type": "string" }
+      }
+    },
+    "completion_conditions": {
+      "type": "object",
+      "required": ["arrival_radius_meters", "requires_gps_verification"],
+      "properties": {
+        "arrival_radius_meters": { "type": "number" },
+        "requires_gps_verification": { "type": "boolean" }
+      }
+    },
+    "safety_guidance": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "xp_reward": { "type": "integer" },
+    "ai_generated": { "type": "boolean" },
+    "model_name": { "type": "string" },
+    "generated_at": { "type": "string" }
+  }
+}

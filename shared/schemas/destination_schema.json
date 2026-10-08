@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Destination",
+  "type": "object",
+  "required": ["id", "name", "category", "latitude", "longitude", "access_type", "is_verified_public"],
+  "properties": {
+    "id": { "type": "string" },
+    "osm_id": { "type": ["string", "null"] },
+    "name": { "type": "string" },
+    "category": { 
+      "type": "string",
+      "enum": ["park", "garden", "historic", "monument", "public_square", "artwork", "library", "viewpoint", "pedestrian_plaza", "nature_reserve", "other_public"]
+    },
+    "description": { "type": ["string", "null"] },
+    "latitude": { "type": "number" },
+    "longitude": { "type": "number" },
+    "distance_meters": { "type": "number" },
+    "estimated_walk_minutes": { "type": "integer" },
+    "access_type": { 
+      "type": "string",
+      "enum": ["free_public", "unknown_fee", "accessible_grounds"]
+    },
+    "is_verified_public": { "type": "boolean" },
+    "opening_hours": { "type": ["string", "null"] },
+    "address": { "type": ["string", "null"] },
+    "tags": { 
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    }
+  }
+}

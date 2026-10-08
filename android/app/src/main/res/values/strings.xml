@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">OffLoop AI</string>
+    <string name="tagline">Break the Scroll. Explore the Real World.</string>
+    <string name="start_adventure">Start Adventure</string>
+    <string name="discover_places">Discover Nearby Places</string>
+    <string name="explorer_mode">Explorer Mode</string>
+    <string name="mystery_mode">Mystery Mode</string>
+    <string name="social_mode">Social Explorer</string>
+    <string name="emergency_exit">Emergency Exit</string>
+    <string name="verify_arrival">Verify Destination Arrival</string>
+    <string name="focus_shield_active">Focus Mode Active: Pocket your phone and explore</string>
+</resources>
