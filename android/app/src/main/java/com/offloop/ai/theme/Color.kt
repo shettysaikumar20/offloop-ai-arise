@@ -2,10 +2,12 @@ package com.offloop.ai.theme
 
 import androidx.compose.ui.graphics.Color
 
-val ForestGreen = Color(0xFF2D5A27)
+val ForestPrimary = Color(0xFF2D5A27)
+val ForestGreen = ForestPrimary
 val ForestDark = Color(0xFF1B3818)
 val ForestLight = Color(0xFF4A7C43)
 val LeafGreen = Color(0xFF8FBC8F)
+
 val EarthBrown = Color(0xFFD4A373)
 val WarmSand = Color(0xFFE9D8A6)
 val SoftCream = Color(0xFFF9F7F1)
