@@ -26,16 +26,13 @@
 
 ```
 offloop-ai/
-├── android/                   # Android App (Kotlin, Jetpack Compose, Room, CameraX)
-│   ├── app/src/main/java/com/offloop/ai/
-│   │   ├── presentation/      # 18 Compose screens, Theme, ViewModels, Navigation
-│   │   ├── location/          # GPS arrival verifier, Compass sensor, Foreground service
-│   │   ├── focus/             # FocusSessionManager & distraction shield
-│   │   ├── audio/             # Native Android Text-to-Speech manager
-│   │   ├── camera/            # CameraX photo capture helper
-│   │   ├── data/              # Room DB entities, DAOs, Repository, Retrofit API
-│   │   └── model/             # Domain data classes & gamification models
-│   └── app/src/test/          # JUnit tests for GPS verification & gamification
+├── frontend/                  # Solo Leveling Web App (React 19, Vite, Plain CSS, LocalStorage)
+│   ├── src/
+│   │   ├── components/        # Status, Quests, Dungeons, Focus Sanctum, Shadows, Achievements
+│   │   ├── context/           # SystemContext state engine & sound triggers
+│   │   ├── types/             # Models, Ranks (E->S), Quests, Shadows, Stats
+│   │   └── utils/             # LocalStorage manager, Web Audio synthesis, Self-tests
+│   └── package.json           # Lightweight web dependencies
 ├── backend/                   # FastAPI Backend (Python 3.11+)
 │   ├── app/api/v1/            # REST endpoints (/destinations, /quests, /narration)
 │   ├── app/services/          # Location discovery, Gemma AI service, TTS proxy
@@ -72,8 +69,19 @@ pytest backend/tests -v
 python scripts/mock_demo.py
 ```
 
-### 4. Build and Run the Android App
-Open the `android/` directory in Android Studio (Jellyfish / Koala or newer), sync Gradle, and run on your physical Android phone (e.g. OnePlus Nord CE 2 Lite) or emulator.
+### 4. Build and Run the Web App (OffLoop AI: ARISE)
+```bash
+# Windows PowerShell
+.\scripts\run_web.ps1
+
+# Linux / macOS
+chmod +x ./scripts/run_web.sh && ./scripts/run_web.sh
+
+# Or directly in frontend
+cd frontend
+npm run dev
+```
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ---
 
