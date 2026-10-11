@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 280" width="100%" height="100%">
+  <defs>
+    <linearGradient id="shadowBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#04060e"/>
+      <stop offset="100%" stop-color="#0e0a24"/>
+    </linearGradient>
+
+    <filter id="violetGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    .shadow-name { font-family: 'Segoe UI', -apple-system, sans-serif; font-size: 15px; font-weight: 800; fill: #ffffff; }
+    .shadow-title { font-family: 'Segoe UI', -apple-system, sans-serif; font-size: 11px; fill: #c084fc; font-weight: 600; }
+    .shadow-perk { font-family: monospace; font-size: 11px; fill: #38bdf8; }
+    .shadow-unlock { font-family: 'Segoe UI', -apple-system, sans-serif; font-size: 10px; fill: #64748b; }
+  </style>
+
+  <!-- Container -->
+  <rect x="0" y="0" width="950" height="280" rx="14" fill="#04060d" stroke="#8b5cf6" stroke-width="1.5" stroke-opacity="0.35"/>
+
+  <!-- Header -->
+  <text x="36" y="36" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="800" fill="#c084fc" letter-spacing="3">
+    [ SHADOW INVENTORY // ORIGINAL UNLOCKABLE ECHOES ]
+  </text>
+
+  <!-- 5 Shadow Cards -->
+  <!-- 1. Tenebris -->
+  <g transform="translate(36, 56)">
+    <rect x="0" y="0" width="165" height="195" rx="8" fill="url(#shadowBg)" stroke="#22c55e" stroke-width="1.2" stroke-opacity="0.6"/>
+    <rect x="12" y="12" width="28" height="18" rx="3" fill="#0d2417" stroke="#22c55e" stroke-width="1"/>
+    <text x="26" y="25" text-anchor="middle" font-family="monospace" font-size="10" font-weight="900" fill="#4ade80">D</text>
+
+    <circle cx="82" cy="55" r="22" fill="#131c36" stroke="#22c55e" stroke-width="1"/>
+    <text x="82" y="61" text-anchor="middle" font-size="18">🗡️</text>
+
+    <text x="82" y="100" text-anchor="middle" class="shadow-name">TENEBRIS</text>
+    <text x="82" y="116" text-anchor="middle" class="shadow-title">Blade of Conviction</text>
+
+    <rect x="8" y="130" width="149" height="30" rx="4" fill="#07101f"/>
+    <text x="82" y="149" text-anchor="middle" class="shadow-perk">+5% Quest XP</text>
+
+    <text x="82" y="180" text-anchor="middle" class="shadow-unlock">Unlocks at Level 5</text>
+  </g>
+
+  <!-- 2. Umbra -->
+  <g transform="translate(214, 56)">
+    <rect x="0" y="0" width="165" height="195" rx="8" fill="url(#shadowBg)" stroke="#06b6d4" stroke-width="1.2" stroke-opacity="0.6"/>
+    <rect x="12" y="12" width="28" height="18" rx="3" fill="#08222c" stroke="#06b6d4" stroke-width="1"/>
+    <text x="26" y="25" text-anchor="middle" font-family="monospace" font-size="10" font-weight="900" fill="#22d3ee">C</text>
+
+    <circle cx="82" cy="55" r="22" fill="#131c36" stroke="#06b6d4" stroke-width="1"/>
+    <text x="82" y="61" text-anchor="middle" font-size="18">📜</text>
+
+    <text x="82" y="100" text-anchor="middle" class="shadow-name">UMBRA</text>
+    <text x="82" y="116" text-anchor="middle" class="shadow-title">Silent Scholar</text>
+
+    <rect x="8" y="130" width="149" height="30" rx="4" fill="#07101f"/>
+    <text x="82" y="149" text-anchor="middle" class="shadow-perk">+10% Focus XP</text>
+
+    <text x="82" y="180" text-anchor="middle" class="shadow-unlock">5 Focus Sessions</text>
+  </g>
+
+  <!-- 3. Vortex -->
+  <g transform="translate(392, 56)">
+    <rect x="0" y="0" width="165" height="195" rx="8" fill="url(#shadowBg)" stroke="#8b5cf6" stroke-width="1.2" stroke-opacity="0.6"/>
+    <rect x="12" y="12" width="28" height="18" rx="3" fill="#1e102f" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="26" y="25" text-anchor="middle" font-family="monospace" font-size="10" font-weight="900" fill="#c084fc">B</text>
+
+    <circle cx="82" cy="55" r="22" fill="#131c36" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="82" y="61" text-anchor="middle" font-size="18">⏳</text>
+
+    <text x="82" y="100" text-anchor="middle" class="shadow-name">VORTEX</text>
+    <text x="82" y="116" text-anchor="middle" class="shadow-title">Temporal Sentinel</text>
+
+    <rect x="8" y="130" width="149" height="30" rx="4" fill="#07101f"/>
+    <text x="82" y="149" text-anchor="middle" class="shadow-perk">Streak Guard</text>
+
+    <text x="82" y="180" text-anchor="middle" class="shadow-unlock">7-Day Streak</text>
+  </g>
+
+  <!-- 4. Ignis -->
+  <g transform="translate(570, 56)">
+    <rect x="0" y="0" width="165" height="195" rx="8" fill="url(#shadowBg)" stroke="#f43f5e" stroke-width="1.2" stroke-opacity="0.6"/>
+    <rect x="12" y="12" width="28" height="18" rx="3" fill="#250d18" stroke="#f43f5e" stroke-width="1"/>
+    <text x="26" y="25" text-anchor="middle" font-family="monospace" font-size="10" font-weight="900" fill="#fb7185">A</text>
+
+    <circle cx="82" cy="55" r="22" fill="#131c36" stroke="#f43f5e" stroke-width="1"/>
+    <text x="82" y="61" text-anchor="middle" font-size="18">🔥</text>
+
+    <text x="82" y="100" text-anchor="middle" class="shadow-name">IGNIS</text>
+    <text x="82" y="116" text-anchor="middle" class="shadow-title">Unyielding Core</text>
+
+    <rect x="8" y="130" width="149" height="30" rx="4" fill="#07101f"/>
+    <text x="82" y="149" text-anchor="middle" class="shadow-perk">+15% XP &amp; Raids</text>
+
+    <text x="82" y="180" text-anchor="middle" class="shadow-unlock">25 Quests Cleared</text>
+  </g>
+
+  <!-- 5. Nocturne -->
+  <g transform="translate(748, 56)">
+    <rect x="0" y="0" width="165" height="195" rx="8" fill="url(#shadowBg)" stroke="#facc15" stroke-width="1.5" stroke-opacity="0.8" filter="url(#violetGlow)"/>
+    <rect x="12" y="12" width="28" height="18" rx="3" fill="#26220b" stroke="#facc15" stroke-width="1"/>
+    <text x="26" y="25" text-anchor="middle" font-family="monospace" font-size="10" font-weight="900" fill="#fef08a">S</text>
+
+    <circle cx="82" cy="55" r="22" fill="#131c36" stroke="#facc15" stroke-width="1"/>
+    <text x="82" y="61" text-anchor="middle" font-size="18">👑</text>
+
+    <text x="82" y="100" text-anchor="middle" class="shadow-name" fill="#facc15">NOCTURNE</text>
+    <text x="82" y="116" text-anchor="middle" class="shadow-title" fill="#fde047">Void Sovereign</text>
+
+    <rect x="8" y="130" width="149" height="30" rx="4" fill="#07101f"/>
+    <text x="82" y="149" text-anchor="middle" class="shadow-perk" fill="#facc15">+25% All XP Aura</text>
+
+    <text x="82" y="180" text-anchor="middle" class="shadow-unlock">S-Rank Monarch</text>
+  </g>
+</svg>

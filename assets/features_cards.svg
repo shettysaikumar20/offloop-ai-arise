@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050814"/>
+      <stop offset="100%" stop-color="#0a122e"/>
+    </linearGradient>
+
+    <filter id="purpleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    .feat-card-title { font-family: 'Segoe UI', -apple-system, sans-serif; font-size: 15px; font-weight: 800; fill: #ffffff; letter-spacing: 1px; }
+    .feat-card-sub { font-family: monospace; font-size: 11px; font-weight: 700; }
+    .feat-card-body { font-family: 'Segoe UI', -apple-system, sans-serif; font-size: 12px; fill: #94a3b8; line-height: 1.4; }
+  </style>
+
+  <!-- Container -->
+  <rect x="0" y="0" width="950" height="360" rx="14" fill="#04060d" stroke="#6366f1" stroke-width="1.5" stroke-opacity="0.3"/>
+
+  <!-- Title Row -->
+  <text x="36" y="38" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="800" fill="#38bdf8" letter-spacing="3">
+    [ SYSTEM DOMAIN MODULES // FOUR PILLARS OF ASCENSION ]
+  </text>
+
+  <!-- Grid of 4 Cards -->
+  <!-- Card 1: Quest System -->
+  <g transform="translate(36, 60)">
+    <rect x="0" y="0" width="202" height="260" rx="10" fill="url(#cardBg)" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.5"/>
+    <rect x="16" y="16" width="36" height="36" rx="8" fill="#0b1739" stroke="#38bdf8" stroke-width="1"/>
+    <text x="34" y="40" text-anchor="middle" font-size="18">⚔️</text>
+    
+    <text x="16" y="78" class="feat-card-title">QUEST GATES</text>
+    <text x="16" y="96" class="feat-card-sub" fill="#38bdf8">DAILY &amp; WEEKLY</text>
+    
+    <text x="16" y="130" class="feat-card-body">
+      <tspan x="16" dy="0">• Physical workouts</tspan>
+      <tspan x="16" dy="20">• Scholar's deep read</tspan>
+      <tspan x="16" dy="20">• Digital feed detox</tspan>
+      <tspan x="16" dy="20">• Floating +XP bursts</tspan>
+      <tspan x="16" dy="20">• Streak multi-burn</tspan>
+    </text>
+
+    <rect x="16" y="218" width="170" height="26" rx="4" fill="#0a192f" stroke="#38bdf8" stroke-width="1"/>
+    <text x="101" y="235" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#38bdf8">E ➔ S DIFFICULTY</text>
+  </g>
+
+  <!-- Card 2: Dungeon Raids -->
+  <g transform="translate(260, 60)">
+    <rect x="0" y="0" width="202" height="260" rx="10" fill="url(#cardBg)" stroke="#f43f5e" stroke-width="1.5" stroke-opacity="0.5"/>
+    <rect x="16" y="16" width="36" height="36" rx="8" fill="#200d14" stroke="#f43f5e" stroke-width="1"/>
+    <text x="34" y="40" text-anchor="middle" font-size="18">🗝️</text>
+    
+    <text x="16" y="78" class="feat-card-title">DUNGEON RAIDS</text>
+    <text x="16" y="96" class="feat-card-sub" fill="#f43f5e">TIMED BOSS PHASES</text>
+    
+    <text x="16" y="130" class="feat-card-body">
+      <tspan x="16" dy="0">• Spatial countdown</tspan>
+      <tspan x="16" dy="20">• Phase checklists</tspan>
+      <tspan x="16" dy="20">• Clutter purge D-Gate</tspan>
+      <tspan x="16" dy="20">• Red Gate B-Rank</tspan>
+      <tspan x="16" dy="20">• S-Rank Monarch Raid</tspan>
+    </text>
+
+    <rect x="16" y="218" width="170" height="26" rx="4" fill="#250d18" stroke="#f43f5e" stroke-width="1"/>
+    <text x="101" y="235" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#fb7185">BOSS CONQUEST</text>
+  </g>
+
+  <!-- Card 3: Focus Sanctum -->
+  <g transform="translate(484, 60)">
+    <rect x="0" y="0" width="202" height="260" rx="10" fill="url(#cardBg)" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.5"/>
+    <rect x="16" y="16" width="36" height="36" rx="8" fill="#081e18" stroke="#10b981" stroke-width="1"/>
+    <text x="34" y="40" text-anchor="middle" font-size="18">⏳</text>
+    
+    <text x="16" y="78" class="feat-card-title">FOCUS SANCTUM</text>
+    <text x="16" y="96" class="feat-card-sub" fill="#10b981">TEMPORAL BARRIER</text>
+    
+    <text x="16" y="130" class="feat-card-body">
+      <tspan x="16" dy="0">• 15/25/45/60/90m</tspan>
+      <tspan x="16" dy="20">• SVG circular HUD</tspan>
+      <tspan x="16" dy="20">• Breathing aura</tspan>
+      <tspan x="16" dy="20">• Web Audio gongs</tspan>
+      <tspan x="16" dy="20">• Zero app blocking</tspan>
+    </text>
+
+    <rect x="16" y="218" width="170" height="26" rx="4" fill="#0a231b" stroke="#10b981" stroke-width="1"/>
+    <text x="101" y="235" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#34d399">DEEP WORK FLOW</text>
+  </g>
+
+  <!-- Card 4: Shadow Companions -->
+  <g transform="translate(708, 60)">
+    <rect x="0" y="0" width="202" height="260" rx="10" fill="url(#cardBg)" stroke="#a855f7" stroke-width="1.5" stroke-opacity="0.5"/>
+    <rect x="16" y="16" width="36" height="36" rx="8" fill="#1e102f" stroke="#a855f7" stroke-width="1"/>
+    <text x="34" y="40" text-anchor="middle" font-size="18">👥</text>
+    
+    <text x="16" y="78" class="feat-card-title">SHADOW EXTRACTION</text>
+    <text x="16" y="96" class="feat-card-sub" fill="#c084fc">MILESTONE ECHOES</text>
+    
+    <text x="16" y="130" class="feat-card-body">
+      <tspan x="16" dy="0">• Tenebris (Lv.5)</tspan>
+      <tspan x="16" dy="20">• Umbra (5 Focus)</tspan>
+      <tspan x="16" dy="20">• Vortex (7D Streak)</tspan>
+      <tspan x="16" dy="20">• Ignis (25 Quests)</tspan>
+      <tspan x="16" dy="20">• Nocturne (S-Rank)</tspan>
+    </text>
+
+    <rect x="16" y="218" width="170" height="26" rx="4" fill="#1d102e" stroke="#a855f7" stroke-width="1"/>
+    <text x="101" y="235" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#c084fc">PASSIVE BUFFS</text>
+  </g>
+</svg>
