@@ -4,13 +4,22 @@
 
 <br/><br/>
 
+[![Live Deployment](https://img.shields.io/badge/⚡_Live_Portal-offloop--ai--arise.onrender.com-00e5ff?style=for-the-badge&logo=render&logoColor=black)](https://offloop-ai-arise.onrender.com/)
+[![Web CI](https://github.com/shettysaikumar20/offloop-ai-arise/actions/workflows/web-ci.yml/badge.svg?branch=main)](https://github.com/shettysaikumar20/offloop-ai-arise/actions/workflows/web-ci.yml)
+[![Backend CI](https://github.com/shettysaikumar20/offloop-ai-arise/actions/workflows/backend-ci.yml/badge.svg?branch=main)](https://github.com/shettysaikumar20/offloop-ai-arise/actions/workflows/backend-ci.yml)
 [![System Status](https://img.shields.io/badge/System-ONLINE-38bdf8?style=for-the-badge&logo=electron&logoColor=white)](#)
 [![Hunter Rank](https://img.shields.io/badge/Rank-E_to_S_Monarch-8b5cf6?style=for-the-badge&logo=sublime-text&logoColor=white)](#)
 [![Tech Stack](https://img.shields.io/badge/Tech-React_19_+_Vite_+_CSS-10b981?style=for-the-badge&logo=react&logoColor=white)](#)
-[![Target Platform](https://img.shields.io/badge/Target-Desktop_Web-facc15?style=for-the-badge&logo=windows&logoColor=black)](#)
 [![License](https://img.shields.io/badge/License-MIT-f43f5e?style=for-the-badge)](#)
 
 </div>
+
+<br/>
+
+> [!TIP]
+> ### 🌐 Live System Portal (Instant Access)
+> **Direct Link:** **[https://offloop-ai-arise.onrender.com/](https://offloop-ai-arise.onrender.com/)**  
+> *Enter the System directly in your browser. Complete the Hunter Awakening Ceremony, battle procrastination dungeons, and progress through the Hunter ranks.*
 
 <br/>
 
@@ -140,11 +149,43 @@ offloop-ai-arise/
 
 ---
 
+## 🧠 Where & How the AI Works
+
+The AI system in **OffLoop AI: ARISE** is architected across two complementary environments:
+
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                   OFFLOOP AI: ARISE ARCHITECTURE                       │
+├───────────────────────────────────┬────────────────────────────────────┤
+│   🌐 LIVE WEB PORTAL (Render)     │    ⚡ FASTAPI AI BACKEND (Local)   │
+│   https://offloop-ai-arise...     │    http://localhost:8000           │
+├───────────────────────────────────┼────────────────────────────────────┤
+│ • Client-Side System Engine       │ • Local Open-Weight Models (Ollama)│
+│ • Zero Latency, 100% Privacy      │   - Google Gemma 2 2.6B (Active)   │
+│ • Deterministic RPG & Rank Math   │   - Google Gemma 3 4.3B (Supported)│
+│ • Focus Sanctum & Audio FX        │ • Hosted Gemma Remote Endpoints    │
+│ • Works completely offline        │ • Deterministic Template Failover  │
+└───────────────────────────────────┴────────────────────────────────────┘
+```
+
+### 1. 🌐 On the Live Web App ([https://offloop-ai-arise.onrender.com/](https://offloop-ai-arise.onrender.com/))
+- **Edge / Browser Execution**: The live deployment is hosted on Render as a high-speed Single Page Application.
+- **Client-Side Game Loop**: The Hunter Awakening ceremony, daily training protocols, penalty countdown timer, stat attribute allocations (`STR`, `AGI`, `INT`, `VIT`, `PER`), and Web Audio synthesis run entirely inside your browser using `localStorage`.
+- **Zero Latency & Privacy**: No personal habits, timer logs, or productivity data leave your device.
+
+### 2. ⚡ In the FastAPI Backend (`backend/`)
+- **Local Open-Weight Model Engine**: Connects to **Ollama** (`http://localhost:11434`) running **Google Gemma 2** (`gemma2:2b`). Generates procedural real-world exploration quests using live OpenStreetMap POI data (parks, historic monuments, botanical gardens, trails).
+- **Remote Model Support**: Compatible with OpenAI-compatible hosted Gemma endpoints (`google/gemma-2-9b-it`).
+- **Resilient 3-Tier Fallback**: If Ollama or the local model is offline (e.g. inside GitHub Actions runners or cloud environments without local GPUs), the service automatically falls back in milliseconds to the built-in deterministic quest architect without throwing errors.
+
+---
+
 ## 🚀 Quick Start Guide
 
 ### Prerequisites
-- Node.js 18+ (tested on Node v20/v22/v26)
-- Any desktop web browser (Chrome, Edge, Firefox, Brave)
+- Node.js 18+ (for Web Frontend)
+- Python 3.11+ (optional, for FastAPI Backend)
+- Ollama (optional, for running local open-weight Gemma models)
 
 ### 1. Launch the Web Application
 ```bash
@@ -169,7 +210,20 @@ Or run the convenient root runner script:
 chmod +x ./scripts/run_web.sh && ./scripts/run_web.sh
 ```
 
-Open your browser to: **[http://localhost:5173](http://localhost:5173)**
+Open your browser to: **[http://localhost:5173](http://localhost:5173)** or visit the **[Live Portal](https://offloop-ai-arise.onrender.com/)**.
+
+### 2. Launch the AI Backend with Local Open-Weight Model (Optional)
+```bash
+# 1. Start Ollama with Gemma 2
+ollama run gemma2:2b
+
+# 2. Start FastAPI Backend
+cd offloop-ai-arise/backend
+pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8000
+```
+- API Docs: **[http://localhost:8000/docs](http://localhost:8000/docs)**
+- Health Check: **[http://localhost:8000/api/v1/health](http://localhost:8000/api/v1/health)**
 
 ---
 
