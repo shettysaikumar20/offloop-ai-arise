@@ -54,8 +54,9 @@ class AIService:
         }
 
         try:
-            timeout_cfg = httpx.Timeout(timeout=30.0, connect=3.0)
+            timeout_cfg = httpx.Timeout(timeout=90.0, connect=4.0)
             async with httpx.AsyncClient(timeout=timeout_cfg) as client:
+
                 res = await client.post(
                     f"{settings.OLLAMA_BASE_URL}/api/generate",
                     json=payload
