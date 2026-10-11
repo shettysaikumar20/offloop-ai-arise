@@ -70,7 +70,7 @@ export default function AchievementsView() {
           return (
             <div
               key={ach.id}
-              className="system-panel corner-brackets"
+              className={`system-panel corner-brackets ${isUnlocked ? 'achievement-shimmer' : ''}`}
               style={{
                 padding: 18,
                 background: isUnlocked ? 'rgba(10, 20, 42, 0.85)' : 'rgba(8, 12, 28, 0.65)',

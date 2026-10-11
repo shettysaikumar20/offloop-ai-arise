@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import { useSystem } from '../../context/SystemContext.jsx';
 import SelfTestRunner from '../diagnostics/SelfTestRunner.jsx';
-import { Settings, Download, Upload, RotateCcw, Volume2, VolumeX, Shield, AlertTriangle, Cpu } from 'lucide-react';
+import { Settings, Download, Upload, RotateCcw, Volume2, VolumeX, Shield, AlertTriangle, Cpu, Sparkles } from 'lucide-react';
 
 export default function SystemSettings() {
-  const { state, toggleSound, triggerExport, triggerImport, resetAllProgress } = useSystem();
+  const { state, toggleSound, triggerExport, triggerImport, resetAllProgress, replayAwakening } = useSystem();
   const fileInputRef = useRef(null);
 
   const handleFileChange = (e) => {
@@ -71,6 +71,25 @@ export default function SystemSettings() {
                 <VolumeX size={15} color="#64748b" /> SOUND MUTED
               </>
             )}
+          </button>
+        </div>
+
+        {/* Replay Hunter Awakening */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: 18, borderBottom: '1px solid rgba(99, 102, 241, 0.2)' }}>
+          <div>
+            <h4 className="font-system" style={{ fontSize: 15, color: '#f8fafc', margin: 0 }}>
+              HUNTER AWAKENING RITUAL
+            </h4>
+            <p style={{ fontSize: 13, color: '#94a3b8', margin: '4px 0 0' }}>
+              Re-experience the first-time onboarding ritual, select your discipline path, or update your persona.
+            </p>
+          </div>
+          <button
+            onClick={replayAwakening}
+            className="btn-system font-system"
+            style={{ fontSize: 12, borderColor: '#a855f7', color: '#c084fc' }}
+          >
+            <Sparkles size={15} color="#c084fc" /> REPLAY AWAKENING
           </button>
         </div>
 

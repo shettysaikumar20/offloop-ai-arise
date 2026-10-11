@@ -47,7 +47,7 @@ export default function DungeonRunnerModal({ dungeon, onClose }) {
   return (
     <div className="system-modal-backdrop" onClick={onClose}>
       <div 
-        className="system-modal-content corner-brackets" 
+        className="system-modal-content corner-brackets dungeon-portal-enter" 
         onClick={e => e.stopPropagation()}
         style={{
           maxWidth: 620,

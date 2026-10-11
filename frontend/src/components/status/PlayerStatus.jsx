@@ -4,7 +4,7 @@ import { RANKS, STAT_INFO, getRequiredXpForLevel } from '../../types/models.js';
 import { Flame, Sparkles, Shield, Zap, Award, Edit3, Check, Trophy, Clock, Skull, ArrowUpRight } from 'lucide-react';
 
 export default function PlayerStatus() {
-  const { state, allocateStat, updateHunterProfile } = useSystem();
+  const { state, allocateStat, updateHunterProfile, replayAwakening } = useSystem();
   const { player } = state;
   const [isEditing, setIsEditing] = useState(false);
   const [tempName, setTempName] = useState(player.name);
@@ -82,6 +82,15 @@ export default function PlayerStatus() {
                     title="Edit Name and Title"
                   >
                     <Edit3 size={13} />
+                  </button>
+
+                  <button
+                    onClick={replayAwakening}
+                    className="btn-system font-sub"
+                    style={{ padding: '2px 8px', fontSize: 11, color: '#c084fc', borderColor: 'rgba(168, 85, 247, 0.4)', marginLeft: 6 }}
+                    title="Replay Hunter Awakening Ritual"
+                  >
+                    <Sparkles size={11} color="#c084fc" /> RITUAL
                   </button>
                 </div>
               </div>

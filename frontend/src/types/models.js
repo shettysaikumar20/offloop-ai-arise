@@ -405,5 +405,6 @@ export const DEFAULT_PLAYER_STATE = {
   totalFocusMinutes: 0,
   totalDungeonsCleared: 0,
   soundEnabled: true,
-  theme: 'system-dark'
+  theme: 'system-dark',
+  awakened: false
 };

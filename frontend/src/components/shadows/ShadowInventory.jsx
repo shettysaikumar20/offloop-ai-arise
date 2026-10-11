@@ -69,7 +69,10 @@ export default function ShadowInventory() {
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 14 }}>
-                <div style={{ width: 48, height: 48, borderRadius: 10, background: isUnlocked ? 'linear-gradient(135deg, #1e1b4b, #312e81)' : 'rgba(15, 23, 42, 0.8)', border: `1px solid ${isUnlocked ? '#38bdf8' : '#334155'}`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div 
+                  className={isUnlocked ? 'shadow-aura-glow' : ''}
+                  style={{ width: 48, height: 48, borderRadius: 10, background: isUnlocked ? 'linear-gradient(135deg, #1e1b4b, #312e81)' : 'rgba(15, 23, 42, 0.8)', border: `1px solid ${isUnlocked ? '#38bdf8' : '#334155'}`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                >
                   <Sparkles size={24} color={isUnlocked ? '#38bdf8' : '#64748b'} />
                 </div>
                 <div>

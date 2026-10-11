@@ -1,17 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSystem } from '../../context/SystemContext.jsx';
 import { STAT_INFO, RANKS } from '../../types/models.js';
 import { Check, CheckCircle2, Circle, Flame, Sparkles, Trash2, Zap } from 'lucide-react';
 
 export default function QuestCard({ quest }) {
   const { toggleQuestCompletion, deleteQuest } = useSystem();
+  const [showFloatingXp, setShowFloatingXp] = useState(false);
+  const [isJustCleared, setIsJustCleared] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
+
   const statInfo = STAT_INFO[quest.statReward] || STAT_INFO.discipline;
   const isCustom = quest.id.startsWith('quest-custom');
   const isCompleted = quest.completed;
 
+  const handleToggle = () => {
+    if (isProcessing) return; // Prevent duplicate clicks
+    setIsProcessing(true);
+
+    if (!isCompleted) {
+      setIsJustCleared(true);
+      setShowFloatingXp(true);
+      setTimeout(() => setShowFloatingXp(false), 900);
+      setTimeout(() => setIsJustCleared(false), 800);
+    }
+
+    toggleQuestCompletion(quest.id);
+    setTimeout(() => setIsProcessing(false), 300);
+  };
+
   return (
     <div
-      className="system-panel"
+      className={`system-panel ${isJustCleared ? 'card-cleared-anim' : ''}`}
       style={{
         padding: '16px 20px',
         display: 'flex',
@@ -21,13 +40,22 @@ export default function QuestCard({ quest }) {
         background: isCompleted ? 'rgba(8, 14, 30, 0.45)' : 'rgba(10, 16, 36, 0.85)',
         borderColor: isCompleted ? 'rgba(34, 197, 94, 0.35)' : 'rgba(99, 102, 241, 0.28)',
         opacity: isCompleted ? 0.78 : 1,
-        transition: 'all 0.2s ease'
+        transition: 'all 0.2s ease',
+        position: 'relative'
       }}
     >
+      {/* Floating XP Reward Indicator */}
+      {showFloatingXp && (
+        <div className="floating-xp-indicator">
+          +{quest.xpReward} XP
+        </div>
+      )}
+
       {/* Left: Checkmark & Info */}
       <div style={{ display: 'flex', alignItems: 'flex-start', gap: 14, flex: 1 }}>
         <button
-          onClick={() => toggleQuestCompletion(quest.id)}
+          onClick={handleToggle}
+          disabled={isProcessing}
           style={{
             background: 'transparent',
             border: 'none',
@@ -121,7 +149,8 @@ export default function QuestCard({ quest }) {
       {/* Right: Action Buttons */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
         <button
-          onClick={() => toggleQuestCompletion(quest.id)}
+          onClick={handleToggle}
+          disabled={isProcessing}
           className={`btn-system font-system ${isCompleted ? '' : 'btn-system-primary'}`}
           style={{
             fontSize: 12,

@@ -621,6 +621,83 @@ export function SystemProvider({ children }) {
     return true;
   }, [notify]);
 
+  // Hunter Awakening Sequence
+  const [showAwakeningModal, setShowAwakeningModal] = useState(() => !state.player.awakened);
+
+  const completeAwakening = useCallback((hunterName, hunterTitle, specialization) => {
+    const specMap = {
+      strength: { stat: 'strength', name: 'Physical Conditioning Path', quest: 'First Trial: 50 Bodyweight Pushups & Brisk Walk', bonus: 2 },
+      intelligence: { stat: 'intelligence', name: 'Scholar & Architect Path', quest: 'First Trial: 30 Min Deep Non-Fiction Study', bonus: 2 },
+      discipline: { stat: 'discipline', name: 'Iron Will & Digital Detox Path', quest: 'First Trial: 2 Continuous Hours Zero Social Media', bonus: 2 },
+      endurance: { stat: 'endurance', name: 'Temporal Sentinel Path', quest: 'First Trial: 45 Min Unbroken Deep Focus Block', bonus: 2 }
+    };
+    const chosen = specMap[specialization] || specMap.discipline;
+    
+    const starterQuest = {
+      id: 'quest-awakening-' + Date.now(),
+      title: chosen.quest,
+      description: `Initiate your ascension as an Awakened Hunter. Prove your resolution in the real world through the ${chosen.name}.`,
+      type: 'daily',
+      difficulty: 'E',
+      category: specialization,
+      statReward: chosen.stat,
+      statBonus: chosen.bonus,
+      xpReward: 150,
+      completed: false,
+      completedAt: null,
+      createdAt: new Date().toISOString()
+    };
+
+    setState(prev => {
+      const updatedStats = { ...prev.player.stats };
+      if (updatedStats[chosen.stat] !== undefined) {
+        updatedStats[chosen.stat] += 2;
+      }
+
+      const updatedPlayer = {
+        ...prev.player,
+        name: hunterName.trim() || prev.player.name,
+        title: hunterTitle.trim() || 'Awakened Hunter',
+        awakened: true,
+        stats: updatedStats
+      };
+
+      return {
+        ...prev,
+        player: updatedPlayer,
+        quests: [starterQuest, ...prev.quests],
+        activityLog: [
+          {
+            id: 'log-' + Date.now(),
+            type: 'system',
+            message: `The Awakening Ritual concluded. Hunter ${updatedPlayer.name} has entered the System.`,
+            timestamp: new Date().toISOString()
+          },
+          ...prev.activityLog
+        ]
+      };
+    });
+
+    setShowAwakeningModal(false);
+    notify('AWAKENING ACKNOWLEDGED', `Welcome, Hunter ${hunterName}! +2 ${chosen.stat.toUpperCase()} attributed and your first Awakening Gate is ready.`, 'levelup');
+    setTimeout(() => {
+      addPlayerXp(75, 'Awakening Initiation Protocol');
+    }, 100);
+  }, [notify, addPlayerXp]);
+
+  const skipAwakening = useCallback(() => {
+    setState(prev => ({
+      ...prev,
+      player: { ...prev.player, awakened: true }
+    }));
+    setShowAwakeningModal(false);
+    notify('SYSTEM INITIALIZED', 'Standard Hunter parameters activated.', 'info');
+  }, [notify]);
+
+  const replayAwakening = useCallback(() => {
+    setShowAwakeningModal(true);
+  }, []);
+
   const resetAllProgress = useCallback(() => {
     const fresh = getInitialFullState();
     setState(fresh);
@@ -647,7 +724,11 @@ export function SystemProvider({ children }) {
     toggleSound,
     updateHunterProfile,
     triggerExport,
-    triggerImport,
+    showAwakeningModal,
+    setShowAwakeningModal,
+    completeAwakening,
+    skipAwakening,
+    replayAwakening,
     resetAllProgress,
     notify
   }), [
@@ -656,6 +737,10 @@ export function SystemProvider({ children }) {
     dismissNotification,
     levelUpModal,
     activeDungeonSession,
+    showAwakeningModal,
+    completeAwakening,
+    skipAwakening,
+    replayAwakening,
     addPlayerXp,
     allocateStat,
     toggleQuestCompletion,

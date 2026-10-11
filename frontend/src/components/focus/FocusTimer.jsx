@@ -102,34 +102,74 @@ export default function FocusTimer() {
         </div>
 
         {/* Big Digital Timer Display */}
-        <div style={{ margin: '24px 0 20px', position: 'relative' }}>
-          <div
-            className="font-system"
-            style={{
-              fontSize: 68,
-              fontWeight: 900,
-              color: isActive ? '#38bdf8' : '#e2e8f0',
-              textShadow: isActive ? '0 0 24px rgba(56, 189, 248, 0.6)' : 'none',
-              letterSpacing: '0.08em',
-              lineHeight: 1
-            }}
-          >
-            {timeFormatted}
-          </div>
-          <div className="font-sub" style={{ fontSize: 13, color: '#64748b', marginTop: 8 }}>
-            {isActive ? 'ACTIVE DOMAIN — ELIMINATE ALL DISTRACTIONS' : 'SANCTUM READY TO INITIALIZE'}
+        {/* Circular SVG Timer HUD with Breathing Aura */}
+        <div 
+          className={`view-transition ${isActive ? 'timer-active-breathe' : 'timer-paused-breathe'}`}
+          style={{
+            position: 'relative',
+            width: 220,
+            height: 220,
+            margin: '18px auto 20px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
+          <svg width="220" height="220" style={{ transform: 'rotate(-90deg)', overflow: 'visible' }}>
+            {/* Background track circle */}
+            <circle
+              cx="110"
+              cy="110"
+              r="90"
+              stroke="rgba(30, 41, 75, 0.6)"
+              strokeWidth="8"
+              fill="transparent"
+            />
+            {/* Animated Progress circle */}
+            <circle
+              cx="110"
+              cy="110"
+              r="90"
+              stroke="#38bdf8"
+              strokeWidth="8"
+              fill="transparent"
+              strokeDasharray={565.48}
+              strokeDashoffset={565.48 * (1 - (totalSeconds > 0 ? (totalSeconds - secondsRemaining) / totalSeconds : 0))}
+              strokeLinecap="round"
+              style={{
+                transition: 'stroke-dashoffset 0.6s linear, stroke 0.3s ease',
+                filter: isActive ? 'drop-shadow(0 0 6px #38bdf8)' : 'none'
+              }}
+            />
+          </svg>
+
+          {/* Centered Digital Countdown */}
+          <div style={{ position: 'absolute', textAlign: 'center', pointerEvents: 'none' }}>
+            <div
+              className="font-system"
+              style={{
+                fontSize: 40,
+                fontWeight: 900,
+                color: isActive ? '#38bdf8' : '#e2e8f0',
+                textShadow: isActive ? '0 0 16px rgba(56, 189, 248, 0.7)' : 'none',
+                letterSpacing: '0.06em',
+                lineHeight: 1
+              }}
+            >
+              {timeFormatted}
+            </div>
+            <div className="font-sub" style={{ fontSize: 11, color: '#64748b', marginTop: 6, textTransform: 'uppercase' }}>
+              {isActive ? 'FLOW BARRIER ACTIVE' : 'SANCTUM READY'}
+            </div>
           </div>
         </div>
 
-        {/* Progress Bar */}
-        <div style={{ maxWidth: 420, margin: '0 auto 24px' }}>
-          <div className="system-progress-track" style={{ height: 8 }}>
-            <div className="system-progress-fill" style={{ width: `${progressPercent}%` }}></div>
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 6, fontSize: 11, color: '#64748b' }}>
-            <span>{progressPercent}% Complete</span>
-            <span>+{Math.max(25, Math.round((selectedMinutes / 10) * 25))} XP Expected</span>
-          </div>
+        {/* Status info row */}
+        <div style={{ maxWidth: 380, margin: '0 auto 20px', display: 'flex', justifyContent: 'space-between', fontSize: 12, color: '#94a3b8' }}>
+          <span>{progressPercent}% Complete</span>
+          <span style={{ color: '#38bdf8', fontFamily: 'var(--font-system)' }}>
+            +{Math.max(25, Math.round((selectedMinutes / 10) * 25))} XP Bounty
+          </span>
         </div>
 
         {/* Timer Control Buttons */}

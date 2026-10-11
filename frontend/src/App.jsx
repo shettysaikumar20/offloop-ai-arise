@@ -4,6 +4,7 @@ import SystemHeader from './components/common/SystemHeader.jsx';
 import SystemNav from './components/common/SystemNav.jsx';
 import SystemNotification from './components/common/SystemNotification.jsx';
 import LevelUpOverlay from './components/common/LevelUpOverlay.jsx';
+import HunterAwakeningModal from './components/common/HunterAwakeningModal.jsx';
 
 import PlayerStatus from './components/status/PlayerStatus.jsx';
 import QuestList from './components/quests/QuestList.jsx';
@@ -27,15 +28,17 @@ function SystemApp() {
         {/* Navigation Bar */}
         <SystemNav activeTab={activeTab} setActiveTab={setActiveTab} />
 
-        {/* View Switcher */}
-        {activeTab === 'status' && <PlayerStatus />}
-        {activeTab === 'quests' && <QuestList />}
-        {activeTab === 'dungeons' && <DungeonList />}
-        {activeTab === 'focus' && <FocusTimer />}
-        {activeTab === 'shadows' && <ShadowInventory />}
-        {activeTab === 'achievements' && <AchievementsView />}
-        {activeTab === 'history' && <ActivityHistoryView />}
-        {activeTab === 'settings' && <SystemSettings />}
+        {/* View Switcher with Lightweight Hardware-Accelerated Transitions */}
+        <div key={activeTab} className="view-transition">
+          {activeTab === 'status' && <PlayerStatus />}
+          {activeTab === 'quests' && <QuestList />}
+          {activeTab === 'dungeons' && <DungeonList />}
+          {activeTab === 'focus' && <FocusTimer />}
+          {activeTab === 'shadows' && <ShadowInventory />}
+          {activeTab === 'achievements' && <AchievementsView />}
+          {activeTab === 'history' && <ActivityHistoryView />}
+          {activeTab === 'settings' && <SystemSettings />}
+        </div>
       </main>
 
       {/* Persistent Atmospheric Footer */}
@@ -54,9 +57,10 @@ function SystemApp() {
         </div>
       </footer>
 
-      {/* Global Overlays & Notifications */}
+      {/* Global Overlays & Modals */}
       <SystemNotification />
       <LevelUpOverlay />
+      <HunterAwakeningModal />
     </div>
   );
 }

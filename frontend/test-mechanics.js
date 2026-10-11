@@ -130,6 +130,10 @@ assert(unlockedNames.includes('Umbra'), 'Umbra extracts at 5 Focus Sessions');
 assert(unlockedNames.includes('Vortex'), 'Vortex extracts at 7-Day Streak');
 assert(unlockedNames.includes('Ignis'), 'Ignis extracts at 25 Quests Completed');
 
+// 8. TEST: Hunter Awakening Protocol Initialization
+assert(fullState.player.awakened === false, 'Fresh state initializes with awakened=false for onboarding');
+assert(typeof fullState.player.name === 'string' && fullState.player.name.length > 0, 'Default Hunter name is properly registered');
+
 console.log('\n====================================================');
 console.log(`🏁 TEST RESULTS: ${passedTests}/${totalTests} TESTS PASSED (${totalTests - passedTests} FAILED)`);
 console.log('====================================================');
