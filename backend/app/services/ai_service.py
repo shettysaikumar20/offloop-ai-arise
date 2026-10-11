@@ -54,7 +54,7 @@ class AIService:
         }
 
         try:
-            timeout_cfg = httpx.Timeout(timeout=10.0, connect=1.5)
+            timeout_cfg = httpx.Timeout(timeout=90.0, connect=2.0)
             async with httpx.AsyncClient(timeout=timeout_cfg) as client:
 
                 res = await client.post(
